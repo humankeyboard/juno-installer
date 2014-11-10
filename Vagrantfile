@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end    
 
   config.vm.define "#{PREFIX}salt" do |master|
-    master.vm.hostname = "#{PREFIX}-#{INSTANCE_NAME}"
+    master.vm.hostname = "#{PREFIX}salt"
 
     master.vm.network :private_network, ip:"10.0.0.10", :netmask => "255.255.255.0"    
 
