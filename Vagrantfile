@@ -45,7 +45,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # disable StrictHostKeyChecking for github
     master.vm.provision "file",
-      source: "etc/ssh-config",
+      source: "files/ssh-config",
       destination: "#{DEST}/.ssh/config"
 
     # copy my private key so I can checkout from private repo
