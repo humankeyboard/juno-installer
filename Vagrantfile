@@ -33,14 +33,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       salt.install_master = true
       salt.install_type = "stable"
     
-      salt.minion_config = "salt/minion"
-      salt.master_config = "salt/master"
+      salt.minion_config = "files/minion"
+      salt.master_config = "files/master"
 
-      salt.minion_key = "salt/minion.pem"
-      salt.minion_pub = "salt/minion.pub"
+      salt.minion_key = "files/minion.pem"
+      salt.minion_pub = "files/minion.pub"
 
-      salt.master_key = "salt/master.pem"
-      salt.master_pub = "salt/master.pub"
+      salt.master_key = "files/master.pem"
+      salt.master_pub = "files/master.pub"
     end
 
     # disable StrictHostKeyChecking for github
@@ -78,7 +78,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # create a temporary minion configuration for masterless execution
     master.vm.provision "file", 
-      source: "salt/minion-masterless",
+      source: "files/minion-masterless",
       destination: "/tmp/salt/minion"
 
     # run salt-sandbox formulas to configure salt-master
@@ -94,9 +94,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # see options here: https://github.com/saltstack/salty-vagrant/blob/develop/example/complete/Vagrantfile
       salt.install_master = false
       salt.install_type = "stable"
-      salt.minion_config = "salt/minion"
-      salt.minion_key = "salt/minion.pem"
-      salt.minion_pub = "salt/minion.pub"
+      salt.minion_config = "files/minion"
+      salt.minion_key = "files/minion.pem"
+      salt.minion_pub = "files/minion.pub"
     end
 
   end
@@ -110,9 +110,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.vm.provision :salt do |salt|
       salt.install_master = false
       salt.install_type = "stable"
-      salt.minion_config = "salt/minion"
-      salt.minion_key = "salt/minion.pem"
-      salt.minion_pub = "salt/minion.pub"
+      salt.minion_config = "files/minion"
+      salt.minion_key = "files/minion.pem"
+      salt.minion_pub = "files/minion.pub"
     end
 
   end
@@ -126,9 +126,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.vm.provision :salt do |salt|
       salt.install_master = false
       salt.install_type = "stable"
-      salt.minion_config = "salt/minion"
-      salt.minion_key = "salt/minion.pem"
-      salt.minion_pub = "salt/minion.pub"
+      salt.minion_config = "files/minion"
+      salt.minion_key = "files/minion.pem"
+      salt.minion_pub = "files/minion.pub"
     end
 
   end
