@@ -34,7 +34,7 @@ if [ $VAGRANT_SERVER = "localhost" ]
     mkdir ./${NAME}
     git clone https://github.com/humankeyboard/juno-installer.git ./${NAME}
 
-    cat <<CONFIGEOF > "./${PREFIX}/config.rb"
+    cat <<CONFIGEOF > "./${NAME}/config.rb"
 # sandbox specific variables
 PROVIDER = "${PROVIDER}"
 HOME = "~/"
@@ -52,7 +52,7 @@ CONFIGEOF
     fi
 
     # provisioning salt-master
-    echo "\n== Provisioning ${PREFIX}salt} =="
+    echo "\n== Provisioning ${NAME} / salt =="
     cd ./${NAME}
     vagrant up
     vagrant ssh salt
