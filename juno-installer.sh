@@ -12,14 +12,11 @@ NAME="juno"
 GITHUB_USERNAME="username"
 GITHUB_EMAIL="e-mail address"
 
-# ssh url for your fork, example below
-REPO="git@github.com:saltstackme/salt-sandbox.git"
-
 
 # don't change these
 PROVIDER="virtualbox"
 VAGRANT_SERVER="localhost"
-
+REPO="https://github.com/saltstackme/salt-sandbox.git"
 
 #################################################
 ######## end of configuration ###################

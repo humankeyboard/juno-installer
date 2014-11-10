@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end    
 
   config.vm.define "orchestration" do |master|
-    master.vm.hostname = "orchestration-node"
+    master.vm.hostname = "orchestration"
 
     master.vm.network :private_network, ip:"10.0.0.10", :netmask => "255.255.255.0"    
 
@@ -87,7 +87,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "controller" do |node|
     node.vm.box = "trusty"
-    node.vm.hostname = "controller-node"
+    node.vm.hostname = "controller"
     node.vm.network :private_network, ip:"10.0.0.11", :netmask => "255.255.255.0"
 
     node.vm.provision :salt do |salt|
@@ -103,7 +103,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "network" do |node|
     node.vm.box = "trusty"
-    node.vm.hostname = "network-node"
+    node.vm.hostname = "network"
     node.vm.network :private_network, ip:"10.0.0.21", :netmask => "255.255.255.0"
     node.vm.network :private_network, ip:"10.0.1.21", :netmask => "255.255.255.0"
 
@@ -119,7 +119,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "compute" do |node|
     node.vm.box = "trusty"
-    node.vm.hostname = "compute-node"
+    node.vm.hostname = "compute1"
     node.vm.network :private_network, ip:"10.0.0.31", :netmask => "255.255.255.0"
     node.vm.network :private_network, ip:"10.0.1.31", :netmask => "255.255.255.0"
 
