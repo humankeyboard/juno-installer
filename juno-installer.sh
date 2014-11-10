@@ -30,11 +30,11 @@ if [ $VAGRANT_SERVER = "localhost" ]
 
     echo
     echo == Configuring Vagrant Environment
-    rm -rf ./${PREFIX}-vagrant
-    mkdir ./${PREFIX}-vagrant
-    git clone https://github.com/humankeyboard/juno-installer.git ./${PREFIX}-vagrant
+    rm -rf ./${PREFIX}vagrant
+    mkdir ./${PREFIX}vagrant
+    git clone https://github.com/humankeyboard/juno-installer.git ./${PREFIX}vagrant
 
-    cat <<CONFIGEOF > "./${PREFIX}-vagrant/config.rb"
+    cat <<CONFIGEOF > "./${PREFIX}vagrant/config.rb"
 # sandbox specific variables
 PROVIDER = "${PROVIDER}"
 HOME = "~/"
@@ -52,8 +52,8 @@ CONFIGEOF
     fi
 
     # provisioning salt-master
-    echo "\n== Provisioning ${PREFIX}-${INSTANCE_NAME}--"
-    cd ./${PREFIX}-vagrant
+    echo "\n== Provisioning ${PREFIX}salt} =="
+    cd ./${PREFIX}vagrant
     vagrant up
-    vagrant ssh ${PREFIX}-${INSTANCE_NAME}
+    vagrant ssh ${PREFIX}salt
 fi
