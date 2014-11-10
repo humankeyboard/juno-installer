@@ -20,8 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     override.vm.box = "trusty"
   end    
 
-  config.vm.define "salt" do |master|
-    master.vm.hostname = "salt"
+  config.vm.define "orchestration" do |master|
+    master.vm.hostname = "orchestration-node"
 
     master.vm.network :private_network, ip:"10.0.0.10", :netmask => "255.255.255.0"    
 
