@@ -6,11 +6,7 @@
 
 # string to prefix your instances
 # so you can identify them easily
-PREFIX="my"
-
-# salt-master instance name
-# it will be prefixed with PREFIX above
-INSTANCE_NAME="salt-master"
+PREFIX="my-"
 
 # github information, so you can push code
 GITHUB_USERNAME="username"
@@ -45,7 +41,6 @@ HOME = "~/"
 PREFIX = "${PREFIX}"
 GITHUB_USERNAME = "${GITHUB_USERNAME}"
 GITHUB_EMAIL = "${GITHUB_EMAIL}"
-INSTANCE_NAME = "${INSTANCE_NAME}"
 REPO = "${REPO}"
 CONFIGEOF
 

@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     override.vm.box = "trusty"
   end    
 
-  config.vm.define "#{PREFIX}-#{INSTANCE_NAME}" do |master|
+  config.vm.define "#{PREFIX}salt" do |master|
     master.vm.hostname = "#{PREFIX}-#{INSTANCE_NAME}"
 
     master.vm.network :private_network, ip:"10.0.0.10", :netmask => "255.255.255.0"    
@@ -85,7 +85,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.provision "shell", inline: "salt-call --local -c /tmp/salt state.highstate -l quiet"
   end
 
-  config.vm.define "controller" do |node|
+  config.vm.define "#{PREFIX}controller" do |node|
     node.vm.box = "trusty"
     node.vm.hostname = "controller-node"
     node.vm.network :private_network, ip:"10.0.0.11", :netmask => "255.255.255.0"
@@ -101,7 +101,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   end
 
-  config.vm.define "network" do |node|
+  config.vm.define "#{PREFIX}network" do |node|
     node.vm.box = "trusty"
     node.vm.hostname = "network-node"
     node.vm.network :private_network, ip:"10.0.0.21", :netmask => "255.255.255.0"
@@ -117,7 +117,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   end
 
-  config.vm.define "compute" do |node|
+  config.vm.define "#{PREFIX}compute" do |node|
     node.vm.box = "trusty"
     node.vm.hostname = "compute-node"
     node.vm.network :private_network, ip:"10.0.0.31", :netmask => "255.255.255.0"
