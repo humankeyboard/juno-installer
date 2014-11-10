@@ -55,5 +55,5 @@ CONFIGEOF
     echo "\n== Provisioning ${NAME} / salt =="
     cd ./${NAME}
     vagrant up
-    vagrant ssh salt
+    vagrant ssh orchestration
 fi
