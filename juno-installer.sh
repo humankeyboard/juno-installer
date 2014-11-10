@@ -6,7 +6,7 @@
 
 # string to prefix your instances
 # so you can identify them easily
-PREFIX="my-"
+NAME="juno"
 
 # github information, so you can push code
 GITHUB_USERNAME="username"
@@ -30,15 +30,15 @@ if [ $VAGRANT_SERVER = "localhost" ]
 
     echo
     echo == Configuring Vagrant Environment
-    rm -rf ./${PREFIX}vagrant
-    mkdir ./${PREFIX}vagrant
-    git clone https://github.com/humankeyboard/juno-installer.git ./${PREFIX}vagrant
+    rm -rf ./${NAME}
+    mkdir ./${NAME}
+    git clone https://github.com/humankeyboard/juno-installer.git ./${NAME}
 
-    cat <<CONFIGEOF > "./${PREFIX}vagrant/config.rb"
+    cat <<CONFIGEOF > "./${PREFIX}/config.rb"
 # sandbox specific variables
 PROVIDER = "${PROVIDER}"
 HOME = "~/"
-PREFIX = "${PREFIX}"
+NAME = "${NAME}"
 GITHUB_USERNAME = "${GITHUB_USERNAME}"
 GITHUB_EMAIL = "${GITHUB_EMAIL}"
 REPO = "${REPO}"
@@ -53,7 +53,7 @@ CONFIGEOF
 
     # provisioning salt-master
     echo "\n== Provisioning ${PREFIX}salt} =="
-    cd ./${PREFIX}vagrant
+    cd ./${NAME}
     vagrant up
-    vagrant ssh ${PREFIX}salt
+    vagrant ssh salt
 fi
