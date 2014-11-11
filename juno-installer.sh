@@ -31,6 +31,8 @@ if [ $VAGRANT_SERVER = "localhost" ]
     mkdir ./${NAME}
     git clone https://github.com/humankeyboard/juno-installer.git ./${NAME}
 
+    #cp ~/.ssh/id_rsa.pub ./${NAME}/salt-sandbox/configure/files/vagrant.id_rsa.pub
+
     cat <<CONFIGEOF > "./${NAME}/config.rb"
 # sandbox specific variables
 PROVIDER = "${PROVIDER}"
