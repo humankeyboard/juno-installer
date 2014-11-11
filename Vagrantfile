@@ -65,10 +65,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.provision "shell", inline: "apt-get install git -y"
 
     # clone salt-sandbox environment
-    master.vm.provision "shell", inline: "git clone https://github.com/saltstackme/salt-sandbox.git /srv/salt-sandbox", privileged: false
+    #master.vm.provision "shell", inline: "git clone https://github.com/humankeyboard/juno-installer.git /tmp/salt-sandbox", privileged: false
+    master.vm.synced_folder "salt-sandbox/", "/srv/salt-sandbox"
 
-    # clone given forked repo environment
-    master.vm.provision "shell", inline: "git clone #{REPO} /srv/salt", privileged: false
+    # clone salt environment
+    master.vm.synced_folder "salt/", "/srv/salt"
 
     # set github username
     master.vm.provision "shell", inline: "git config --global user.name #{GITHUB_USERNAME}", privileged: false
