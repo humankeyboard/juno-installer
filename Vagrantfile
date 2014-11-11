@@ -74,7 +74,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # configure passwordless login for vagrant user
     master.vm.provision "file", 
       source: "#{HOME}/.ssh/id_rsa.pub",
-      destination: "/srv/salt-sandboc/default/files/vagrant.id_rsa.pub"
+      destination: "/srv/salt-sandbox/default/files/vagrant.id_rsa.pub"
 
     # set github username
     master.vm.provision "shell", inline: "git config --global user.name #{GITHUB_USERNAME}", privileged: false
