@@ -16,7 +16,7 @@ GITHUB_EMAIL="e-mail address"
 # don't change these
 PROVIDER="virtualbox"
 VAGRANT_SERVER="localhost"
-REPO="https://github.com/saltstackme/salt-sandbox.git"
+REPO="https://github.com/humankeyboard/salt-juno.git"
 
 #################################################
 ######## end of configuration ###################

@@ -70,7 +70,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # clone salt environment
     #master.vm.synced_folder "salt/", "/srv/salt"
-    master.vm.provision "shell", inline: "git clone https://github.com/humankeyboard/salt-juno.git /srv/salt", privileged: false
+    master.vm.provision "shell", inline: "git clone #{REPO} /srv/salt", privileged: false
 
     # configure passwordless login for vagrant user
     master.vm.provision "file", 
